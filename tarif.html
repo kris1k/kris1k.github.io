@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы на сопровождение</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка данных из локального JSON-файла
+            fetch('https://raw.githubusercontent.com/kris1k/bd/main/tariffs.json')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('table tbody');
+                data.forEach(tariff => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${tariff.name}</td>
+                        <td>${tariff.monthly_price} руб.</td>
+                        <td>${tariff.after_break_price} руб.</td>
+                        <td>${tariff.has_unlimited_line ? 'Да' : 'Нет'}</td>
+                        <td>${tariff.remote_consultation_hours} час</td>
+                        <td>${tariff.service_engineer_hours} час</td>
+                        <td>${tariff.info_bases_count}</td>
+                        <td>${tariff.cabinet_employee_service}</td>
+                        <td>${tariff.spark_risks_service}</td>
+                        <td><a href="tarif.html" class="red-button">заказать</a></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Ошибка:', error));
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="логотип Ависты.png" alt="Логотип Ависты" class="logo">
+            </a>
+            <span class="brand-name">Ависта</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">О компании</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="request.html">Оставить заявку</a></li>
+                <li class="dropdown">
+                    <a href="#">Программы 1С</a>
+                    <div class="dropdown-content">
+                        <a href="byhgalteria.html"> 1С:Бухгалтерия</a>
+                        <a href="zarplata.html"> 1С:Зарплата и Управление Персоналом</a>
+                        <a href="ypravlenieTorgovlei.html"> 1С:Управление торговлей</a>
+                        <a href="ynf.html">1С:Управление нашей фирмой</a>
+                        <a href="komplexnaya.html"> 1С:Комплексная автоматизация</a>
+                        <a href="ypravlPred.html"> 1С:ERP Управление предприятием</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Сопровождение 1С</a>
+                    <div class="dropdown-content">
+                        <a href="1ceto.html">Что такое 1С:ИТС</a>
+                        <a href="tarif.html">Тарифы на сопровождение 1С</a>
+                        <a href="yslugiiservisi.html">Услуги и сервисы 1С:ИТС</a>
+                    </div>
+                </li>
+                <li><a href="courses.html">Курсы 1С</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Тарифы на сопровождение 1С в Новоуральске</h1>
+            <p>Мы предлагаем лучшие продукты и услуги 1С.</p>
+            <h2>Стоимость комплексного сопровождения программ «1С:Предприятие» уровня ПРОФ</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тариф</th>
+                        <th>Цена в месяц</th>
+                        <th>Цена после перерыва</th>
+                        <th>Безлимитная линия консультаций</th>
+                        <th>Линия консультаций с удаленным подключением</th>
+                        <th>Услуги сервис-инженера</th>
+                        <th>Количество информационных баз</th>
+                        <th>Сервис 1С:Кабинет сотрудника</th>
+                        <th>Сервис 1СПАРК Риски</th>
+                        <th>Заказать</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Данные будут загружены сюда -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Ависта</p>
+    </footer>
+</body>
+</html>
