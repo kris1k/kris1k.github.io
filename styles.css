@@ -213,6 +213,7 @@ form button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Масштабирует изображение, чтобы оно полностью занимало контейнер, сохраняя его пропорции */
+    filter: grayscale(0%);
 }
 
 .managing__overlay {
