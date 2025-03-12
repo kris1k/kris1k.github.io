@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запишитесь на обучение</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <img src="логотип Ависты.png" alt="лого" class="logo">
+        <h1>Учебный центр Ависта</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Учебные программы и МТО</a></li>
+            <li><a href="teachers.html">Преподаватели и расписание</a></li>
+            <li><a href="enroll.html">Запись на обучение</a></li>
+            <li><a href="license.html">Основные сведения и структура</a></li>
+            <li><a href="documents.html">Документы</a></li>
+            <li><a href="center.html">Учебный центр Ависта</a></li>
+            <li><a href="management.html">Руководство</a></li>
+            <li><a href="projects.html">Дипломные работы выпускников</a></li>
+            <li><a href="calculator.html">Калькулятор</a></li>
+        </ul>
+    </nav>
+
+    <section id="calculator">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Калькулятор стоимости бухгалтерских услуг</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                }
+        
+                .calculator {
+                    max-width: 500px;
+                    margin: 0 auto;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    
+                }
+        
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+        
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+        
+                select, input[type="range"] {
+                    width: 100%;
+                    padding: 8px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+        
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #c93030;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    box-sizing: border-box;
+                }
+        
+                button:hover {
+                    background-color: #882121;
+                }
+        
+                h2 {
+                    margin-top: 20px;
+                    font-size: 20px;
+                    text-align: center;
+                }
+        
+                .range-value {
+                    display: inline-block;
+                    margin-left: 10px;
+                    font-weight: bold;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="calculator">
+                <h1>Калькулятор стоимости бухгалтерских услуг</h1>
+                
+                <label for="legalForm">Организационно-правовая форма вашей компании:</label>
+                <select id="legalForm">
+                    <option value="ООО">ООО</option>
+                    <option value="ИП">ИП</option>
+                    <option value="АО">АО</option>
+                </select>
+                
+                <label for="activity">Деятельность ведётся:</label>
+                <select id="activity">
+                    <option value="yes">Да</option>
+                    <option value="no">Нет</option>
+                </select>
+                
+                <label for="taxation">Режим налогообложения:</label>
+                <select id="taxation">
+                    <option value="usn6">УСНО 6%</option>
+                    <option value="usn15">УСНО 15%</option>
+                    <option value="general">Общая система налогообложения</option>
+                </select>
+                
+                <label for="bankAccount">Ведение расчётного счёта в системе БК:</label>
+                <select id="bankAccount">
+                    <option value="yes">Да</option>
+                    <option value="no">Нет</option>
+                </select>
+                
+                <label for="operations">Количество операций в месяц:</label>
+                <input type="range" id="operations" min="0" max="1000" value="0">
+                <span class="range-value" id="operationsValue">0</span>
+                
+                <label for="employees">Количество наёмных работников:</label>
+                <input type="range" id="employees" min="0" max="100" value="0">
+                <span class="range-value" id="employeesValue">0</span>
+                
+                <h2>Итого: <span id="total">0</span> руб. в месяц</h2>
+                
+                <button onclick="window.location.href='enroll.html'">Заказать обслуживание</button>
+            </div>
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const operationsInput = document.getElementById('operations');
+                    const operationsValue = document.getElementById('operationsValue');
+                    const employeesInput = document.getElementById('employees');
+                    const employeesValue = document.getElementById('employeesValue');
+                    const totalElement = document.getElementById('total');
+        
+                    // Обновляем значения ползунков при изменении
+                    operationsInput.addEventListener('input', function() {
+                        operationsValue.textContent = operationsInput.value;
+                        updateTotal();
+                    });
+        
+                    employeesInput.addEventListener('input', function() {
+                        employeesValue.textContent = employeesInput.value;
+                        updateTotal();
+                    });
+        
+                    // Обновляем итоговую стоимость при изменении любого параметра
+                    document.querySelectorAll('select').forEach(select => {
+                        select.addEventListener('change', updateTotal);
+                    });
+        
+                    function updateTotal() {
+                        const legalForm = document.getElementById('legalForm').value;
+                        const activity = document.getElementById('activity').value;
+                        const taxation = document.getElementById('taxation').value;
+                        const bankAccount = document.getElementById('bankAccount').value;
+                        const operations = parseInt(operationsInput.value);
+                        const employees = parseInt(employeesInput.value);
+        
+                        let baseCost = 0;
+        
+                        // Базовая стоимость в зависимости от формы компании
+                        if (legalForm === 'ООО') baseCost += 5000;
+                        else if (legalForm === 'ИП') baseCost += 3000;
+                        else if (legalForm === 'АО') baseCost += 7000;
+        
+                        // Дополнительная стоимость, если деятельность ведётся
+                        if (activity === 'yes') baseCost += 2000;
+        
+                        // Дополнительная стоимость в зависимости от режима налогообложения
+                        if (taxation === 'usn6') baseCost += 1000;
+                        else if (taxation === 'usn15') baseCost += 1500;
+                        else if (taxation === 'general') baseCost += 3000;
+        
+                        // Дополнительная стоимость, если ведётся расчётный счёт
+                        if (bankAccount === 'yes') baseCost += 1000;
+        
+                        // Стоимость операций и сотрудников
+                        const operationsCost = operations * 10;
+                        const employeesCost = employees * 500;
+        
+                        // Итоговая стоимость
+                        const totalCost = baseCost + operationsCost + employeesCost;
+        
+                        // Отображаем итоговую стоимость
+                        totalElement.textContent = totalCost;
+                    }
+        
+                    // Инициализация при загрузке страницы
+                    updateTotal();
+                });
+            </script>
+        </body>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Учебный центр Ависта. Все права защищены.</p>
+    </footer>
+</body>
+</html>
