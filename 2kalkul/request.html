@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оставить заявку - Ависта</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="логотип Ависты.png" alt="Логотип Ависты" class="logo">
+            </a>
+            <span class="brand-name">Ависта</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">О компании</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="request.html">Оставить заявку</a></li>
+                <li class="dropdown">
+                    <a href="#">Программы 1С</a>
+                    <div class="dropdown-content">
+                        <a href="byhgalteria.html"> 1С:Бухгалтерия</a>
+                        <a href="zarplata.html"> 1С:Зарплата и Управление Персоналом</a>
+                        <a href="ypravlenieTorgovlei.html"> 1С:Управление торговлей</a>
+                        <a href="ynf.html">1С:Управление нашей фирмой</a>
+                        <a href="komplexnaya.html"> 1С:Комплексная автоматизация</a>
+                        <a href="ypravlPred.html"> 1С:ERP Управление предприятием</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Сопровождение 1С</a>
+                    <div class="dropdown-content">
+                        <a href="1ceto.html">Что такое 1С:ИТС</a>
+                        <a href="tarif.html">Тарифы на сопровождение 1С</a>
+                        <a href="yslugiiservisi.html">Услуги и сервисы 1С:ИТС</a>
+                    </div>
+                </li>
+                <li><a href="courses.html">Курсы 1С</a></li>
+                <li><a href="calculator1.html">Рассчитать стоимость бухгалтерских услуг</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="enroll">
+            <h2>Оставить заявку</h2>
+            <form id="enrollForm" action="https://formspree.io/f/xpwazrev" method="POST">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Ависта</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Минимальный",
+        "monthly_price": 4297,
+        "after_break_price": 5156,
+        "has_unlimited_line": true,
+        "remote_consultation_hours": 1,
+        "service_engineer_hours": 1,
+        "info_bases_count": "Не ограничено",
+        "cabinet_employee_service": "Приобретается дополнительно",
+        "spark_risks_service": "Приобретается дополнительно"
+    },
+    {
+        "name": "Оптимальный",
+        "monthly_price": 6535,
+        "after_break_price": 7394,
+        "has_unlimited_line": true,
+        "remote_consultation_hours": 2,
+        "service_engineer_hours": 1,
+        "info_bases_count": "Не ограничено",
+        "cabinet_employee_service": "На 25 сотрудников",
+        "spark_risks_service": "Приобретается дополнительно"
+    },
+    {
+        "name": "Сервисный",
+        "monthly_price": 8592,
+        "after_break_price": 9451,
+        "has_unlimited_line": true,
+        "remote_consultation_hours": 3,
+        "service_engineer_hours": 2,
+        "info_bases_count": "Не ограничено",
+        "cabinet_employee_service": "На 10 сотрудников",
+        "spark_risks_service": "Приобретается дополнительно"
+    }
+]
+
